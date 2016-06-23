@@ -17,7 +17,7 @@
  * 
  */
 
-package no.bioforsk.vips.model.downcastmodel;
+package no.nibio.vips.model.downcastmodel;
 
 import no.nibio.vips.util.DateMap;
 

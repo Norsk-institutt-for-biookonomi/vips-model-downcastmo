@@ -17,7 +17,7 @@
  * 
  */
 
-package no.bioforsk.vips.model.downcastmodel;
+package no.nibio.vips.model.downcastmodel;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -190,7 +190,41 @@ public class DOWNCASTModel extends I18nImpl implements Model {
 
     @Override
     public String getSampleConfig() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return  "{\n" +
+                "\t\"loginInfo\":{\n" +
+                "\t\t\"username\":\"example\",\n" +
+                "\t\t\"password\":\"example\"\n" +
+                "\t},\n" +
+                "\t\"modelId\":\"" + MODEL_ID.toString() + "\",\n" +
+                "\t\"configParameters\":{\n" +
+                "\t\t\"observations\":[\n" +
+                "\t\t{\n" +
+                "\t\t\t\t\"timeMeasured\": \"2012-08-20T00:00:00+02:00\",\n" +
+                "\t\t\t\t\"elementMeasurementTypeId\":\"TM\",\n" +
+                "\t\t\t\t\"logIntervalId\":1,\n" +
+                "\t\t\t\t\"value\":13.77\n" +
+                "\t\t},\n" +
+                "\t\t{\n" +
+                "\t\t\t\t\"timeMeasured\": \"2012-08-20T00:00:00+02:00\",\n" +
+                "\t\t\t\t\"elementMeasurementTypeId\":\"BTg\",\n" +
+                "\t\t\t\t\"logIntervalId\":1,\n" +
+                "\t\t\t\t\"value\":48\n" +
+                "\t\t},\n" +
+                "\t\t{\n" +
+                "\t\t\t\t\"timeMeasured\": \"2012-08-20T00:00:00+02:00\",\n" +
+                "\t\t\t\t\"elementMeasurementTypeId\":\"RR\",\n" +
+                "\t\t\t\t\"logIntervalId\":1,\n" +
+                "\t\t\t\t\"value\":3.6\n" +
+                "\t\t},\n" +
+                "\t\t{\n" +
+                "\t\t\t\t\"timeMeasured\": \"2012-08-20T00:00:00+02:00\",\n" +
+                "\t\t\t\t\"elementMeasurementTypeId\":\"UM\",\n" +
+                "\t\t\t\t\"logIntervalId\":1,\n" +
+                "\t\t\t\t\"value\":60\n" +
+                "\t\t}\n" +
+                "\t\t]\n" +
+                "\t}\n" +
+                "}\n";
     }
 
     @Override

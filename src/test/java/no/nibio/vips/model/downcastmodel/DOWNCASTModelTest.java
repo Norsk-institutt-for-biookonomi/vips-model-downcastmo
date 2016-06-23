@@ -16,8 +16,9 @@
  * along with DOWNCASTModel.  If not, see <http://www.nibio.no/licenses/>.
  * 
  */
-package no.bioforsk.vips.model.downcastmodel;
+package no.nibio.vips.model.downcastmodel;
 
+import no.nibio.vips.model.downcastmodel.DOWNCASTModel;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
