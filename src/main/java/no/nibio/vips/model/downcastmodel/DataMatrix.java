@@ -28,5 +28,6 @@ import no.nibio.vips.util.DateMap;
 public class DataMatrix extends DateMap{
     public final static String SPORULATION_VALUE = "SPORULATION_VALUE";
     public final static String INFECTION_DIRECTLY_AFTER_SPORULATION = "IDAS";
+    public final static String INFECTION_LATER_AFTER_SPORULATION = "ILAS";
     public final static String INFECTION_TIME_AFTER_SPORULATION = "ITAS";
 }

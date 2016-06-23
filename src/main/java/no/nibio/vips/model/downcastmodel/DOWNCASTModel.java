@@ -82,6 +82,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
             Integer sporulationValue = this.dataMatrix.getParamIntValueForDate(currentDate, DataMatrix.SPORULATION_VALUE);
             Integer infectionDirectlyAfterSporulation = this.dataMatrix.getParamIntValueForDate(currentDate, DataMatrix.INFECTION_DIRECTLY_AFTER_SPORULATION);
             Date infectionTimeAfterSporulation = this.dataMatrix.getParamDateValueForDate(currentDate, DataMatrix.INFECTION_TIME_AFTER_SPORULATION);
+            Boolean isInfectionPredictedToday = isInfectionPredictedToday(currentDate);
             
             result.setValue(DOWNCASTModel.MODEL_ID.toString(), DataMatrix.SPORULATION_VALUE, 
                     String.valueOf(sporulationValue));
@@ -89,10 +90,12 @@ public class DOWNCASTModel extends I18nImpl implements Model {
                     String.valueOf(infectionDirectlyAfterSporulation));
             result.setValue(DOWNCASTModel.MODEL_ID.toString(), DataMatrix.INFECTION_TIME_AFTER_SPORULATION, 
                     infectionTimeAfterSporulation != null ? String.valueOf(infectionTimeAfterSporulation) : "");
+            result.setValue(DOWNCASTModel.MODEL_ID.toString(), DataMatrix.INFECTION_LATER_AFTER_SPORULATION, 
+                    isInfectionPredictedToday ? "1" : "0");
             
             Integer warningStatus = Result.WARNING_STATUS_NO_RISK;
             if(infectionDirectlyAfterSporulation == 1
-                    || isInfectionPredictedToday(currentDate) // Checks today and three days back for prediction
+                    || isInfectionPredictedToday // Checks today and three days back for prediction
                     )
             {
                 warningStatus = Result.WARNING_STATUS_HIGH_RISK;
