@@ -239,8 +239,15 @@ public class DOWNCASTModel extends I18nImpl implements Model {
         List<WeatherObservation> observations = objectMapper.convertValue(config.getConfigParameter("observations"), new TypeReference<List<WeatherObservation>>(){});
         for(WeatherObservation o:observations)
         {
-            this.dataMatrix.setParamDoubleValueForDate(o.getTimeMeasured(), o.getElementMeasurementTypeId(), o.getValue());   
+            String paramCode = o.getElementMeasurementTypeId();
+            // If we get BT, convert to BTg
+            if(paramCode.equals("BT"))
+            {
+                paramCode = "BTg";
+            }
+            this.dataMatrix.setParamDoubleValueForDate(o.getTimeMeasured(), paramCode, o.getValue());   
         }
+        //System.out.println(this.dataMatrix.toCSV());
     }
 
     private void calculateResults()
@@ -373,7 +380,11 @@ public class DOWNCASTModel extends I18nImpl implements Model {
         {
             cal.setTime(firstHourOverRelHumThreshold);
             Integer hourOfDay = cal.get(Calendar.HOUR_OF_DAY);
-            if(DEBUG) System.out.println("Got here! Value = " + this.sporulationTable.getSporulationValue(hourOfDay, temperatureSumAtHighRelHum/hoursAtHighRelHum));
+            if(DEBUG)
+            {
+                System.out.println("hourOfDay=" + hourOfDay +", temperatureSumAtHighRelHum=" + temperatureSumAtHighRelHum + ", hoursAtHighRelHum=" + hoursAtHighRelHum);
+                System.out.println("Got here! Value = " + this.sporulationTable.getSporulationValue(hourOfDay, temperatureSumAtHighRelHum/hoursAtHighRelHum));
+            }
             return this.sporulationTable.getSporulationValue(hourOfDay, temperatureSumAtHighRelHum/hoursAtHighRelHum);
         }
         else
@@ -384,9 +395,6 @@ public class DOWNCASTModel extends I18nImpl implements Model {
 
     private Boolean isInfectionDirectlyAfterSporulation(Date currentDate) {
         currentDate = this.weatherUtil.normalizeToExactDate(currentDate, timeZone);
-        
-        
-        
         Calendar cal = Calendar.getInstance(timeZone);
         cal.setTime(currentDate);
         cal.set(Calendar.HOUR_OF_DAY, 6);
@@ -407,8 +415,12 @@ public class DOWNCASTModel extends I18nImpl implements Model {
         // Between 06:00 and 12:00 the current date
         while(currentPossibleInfectionHour.compareTo(period4Limit) <= 0)
         {
-            
             Double BTg = this.dataMatrix.getParamDoubleValueForDate(currentPossibleInfectionHour, WeatherElements.LEAF_WETNESS_GROUND_LEVEL);
+            
+            if(BTg == null)
+            {
+                System.out.println("currentPossibleInfectionHour = " + currentPossibleInfectionHour);
+            }
             Double TM = this.dataMatrix.getParamDoubleValueForDate(currentPossibleInfectionHour, WeatherElements.TEMPERATURE_MEAN);
             
             temperatureSum += TM;
