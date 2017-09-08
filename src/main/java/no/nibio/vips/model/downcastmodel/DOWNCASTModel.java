@@ -77,7 +77,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
         while(currentDate.compareTo(lastDate) <= 0)
         {
             Result result = new ResultImpl();
-            result.setResultValidTime(currentDate);
+            result.setValidTimeStart(currentDate);
             
             Integer sporulationValue = this.dataMatrix.getParamIntValueForDate(currentDate, DataMatrix.SPORULATION_VALUE);
             Integer infectionDirectlyAfterSporulation = this.dataMatrix.getParamIntValueForDate(currentDate, DataMatrix.INFECTION_DIRECTLY_AFTER_SPORULATION);
