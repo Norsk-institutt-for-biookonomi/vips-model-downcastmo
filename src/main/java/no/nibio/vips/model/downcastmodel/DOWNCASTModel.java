@@ -415,7 +415,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
         // Between 06:00 and 12:00 the current date
         while(currentPossibleInfectionHour.compareTo(period4Limit) <= 0)
         {
-            Double BTg = this.dataMatrix.getParamDoubleValueForDate(currentPossibleInfectionHour, WeatherElements.LEAF_WETNESS_GROUND_LEVEL);
+            Double BTg = this.dataMatrix.getParamDoubleValueForDate(currentPossibleInfectionHour, WeatherElements.LEAF_WETNESS_DURATION_GROUND_LEVEL);
             
             if(BTg == null)
             {
@@ -527,7 +527,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
         Date currentHour = firstHourAfterSporulation;
         while(currentHour.compareTo(lastPossibleInfectionTimeAfterSporulation) <= 0)
         {
-            Double currentBTg = this.dataMatrix.getParamDoubleValueForDate(currentHour, WeatherElements.LEAF_WETNESS_GROUND_LEVEL);
+            Double currentBTg = this.dataMatrix.getParamDoubleValueForDate(currentHour, WeatherElements.LEAF_WETNESS_DURATION_GROUND_LEVEL);
             if(currentBTg >= 12 || last5LeafWetnessValues != null && !last5LeafWetnessValues.isEmpty())
             {
                 if(last5LeafWetnessValues == null)
@@ -561,7 +561,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
                         currentHour = cal.getTime();
                         for(int j = 0; j < 8; j++)
                         {
-                            currentBTg = this.dataMatrix.getParamDoubleValueForDate(currentHour, WeatherElements.LEAF_WETNESS_GROUND_LEVEL);
+                            currentBTg = this.dataMatrix.getParamDoubleValueForDate(currentHour, WeatherElements.LEAF_WETNESS_DURATION_GROUND_LEVEL);
                             if(currentBTg >= 48 || last3LeafWetnessValues != null)
                             {
                                 if(last3LeafWetnessValues == null)
