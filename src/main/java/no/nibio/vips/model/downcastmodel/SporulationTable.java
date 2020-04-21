@@ -53,7 +53,7 @@ public class SporulationTable {
     {
         try
         {
-            return this.sporulationTable.get(hourOfDay)[new Double(Math.floor(averageTemperature)).intValue()];
+            return this.sporulationTable.get(hourOfDay)[Math.max(0,Double.valueOf(Math.floor(averageTemperature)).intValue())];
         }
         catch(NullPointerException ex)
         {
