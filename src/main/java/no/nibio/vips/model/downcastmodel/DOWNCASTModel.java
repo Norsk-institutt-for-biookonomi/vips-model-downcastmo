@@ -19,7 +19,6 @@
 
 package no.nibio.vips.model.downcastmodel;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Calendar;
 import java.io.IOException;
@@ -236,7 +235,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
         ObjectMapper objectMapper = new ObjectMapper();
         this.timeZone = TimeZone.getTimeZone((String) config.getConfigParameter("timeZone"));
         // Getting weather data
-        List<WeatherObservation> observations = objectMapper.convertValue(config.getConfigParameter("observations"), new TypeReference<List<WeatherObservation>>(){});
+        List<WeatherObservation> observations = this.modelUtil.extractWeatherObservationList(config.getConfigParameter("observations"));
         for(WeatherObservation o:observations)
         {
             String paramCode = o.getElementMeasurementTypeId();
