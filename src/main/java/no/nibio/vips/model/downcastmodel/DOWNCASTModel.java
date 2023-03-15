@@ -199,6 +199,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
                 "\t},\n" +
                 "\t\"modelId\":\"" + MODEL_ID.toString() + "\",\n" +
                 "\t\"configParameters\":{\n" +
+                "\t\t\"timeZone\":\"Europe/Oslo\", \n" +
                 "\t\t\"observations\":[\n" +
                 "\t\t{\n" +
                 "\t\t\t\t\"timeMeasured\": \"2012-08-20T00:00:00+02:00\",\n" +
