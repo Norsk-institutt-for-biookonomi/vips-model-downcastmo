@@ -323,6 +323,7 @@ public class DOWNCASTModel extends I18nImpl implements Model {
             if(DEBUG) System.out.println("currentHour=" + currentHour);
             // Checking temperature criterium
             Double TM = this.dataMatrix.getParamDoubleValueForDate(currentHour, WeatherElements.TEMPERATURE_MEAN);
+            if(DEBUG) System.out.println("TM=" + TM);
             if(currentHour.before(aDay))
             {
                 
