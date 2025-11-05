@@ -2,3 +2,4 @@ target/
 classes/
 .idea/
 .vscode/settings.json
+*.log
