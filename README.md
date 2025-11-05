@@ -1,4 +1,4 @@
-# Onion Downy Mildew – DeVisser’s Downcast 
+# Onion Downy Mildew – DeVisser's Downcast 
 This model calculates infection risk of onion downy mildew (*Peronospora destructor*) using weather data and forecasts. The model is of relevance to spring onion, bulb onion and other species within *Allium sp.*   
 
 In Norway, main outbreaks of onion downy mildew usually appear in late summer (July/August), but not annually in all onion-producing regions. A spraying decision should therefore be based on an assessment of present inoculum, in addition to the issued risk alerts.  
