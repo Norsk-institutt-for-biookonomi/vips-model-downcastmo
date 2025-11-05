@@ -33,7 +33,7 @@ Explanation of warning details:
 
 *Time of infection (ITAS)* indicates the estimated time of infection in the case of delayed infection.  
 
-<img src="src/main/resources/images/chart.png" title="Onion downy mildew in spring onion. (Photo: Arne Hermansen, NIBIO)"/>
+<img src="src/main/resources/images/chart_DOWNCASTMO.png" title="Onion downy mildew in spring onion. (Photo: Arne Hermansen, NIBIO)"/>
 
 *Screenshot from detailed alert view for onion downy mildew risk alerts*
 
